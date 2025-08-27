@@ -1,0 +1,22 @@
+[aria-modal="true"] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+[aria-hidden=true] {
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+}
+#app-overlay[aria-hidden=true] {
+    opacity: 0;
+    pointer-events: none;
+    transition: all .35s ease-in-out;
+}
+#app-overlay[aria-hidden=false] {
+    backdrop-filter: blur(3px);
+    background-color: rgb(0 0 0 / 15%);
+    pointer-events: auto;
+    opacity: 1;
+}

@@ -1,0 +1,123 @@
+.btn, .btn1, .btn2, .btn3, .btn4, .btn5 {
+	border: 0;
+	background: none;
+
+	position: relative;
+
+	display: inline-flex;
+
+	font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+
+    transition: all .25s ease-in-out;
+
+    cursor: pointer;
+}
+
+
+.btn,
+.btn1 {
+	border: 2px solid var(--color-green-dark);
+	background: var(--color-green-dark);
+	background-color: var(--color-green-dark);
+	color: #FFF;
+	align-items: center;
+	padding: 12px 24px;
+	border-radius: 99999px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.btn:hover,
+.btn1:hover {
+	border-color: var(--color-green-darkest);
+	background-color: var(--color-green-darkest);
+}
+
+
+.btn2 {
+    border: 2px solid var(--color-green-dark);
+    background: #FFFFFF;
+    background-color: #FFFFFF;
+    color: var(--color-green-dark);
+    padding: 12px 24px;
+    border-radius: 99999px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn2:hover {
+	border-color: var(--color-green-darkest);
+	color: var(--color-green-darkest);
+}
+
+
+.btn3 {
+	background-color: transparent;
+	color: #FFF;
+	padding: 0;
+	border-radius: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	min-height: 40px;
+}
+.btn3 > svg {
+	width: 20px;
+	height: 40px;
+}
+.btn3 > svg polygon {
+	fill: var(--color-green-dark);
+	transition: fill .25s ease-in-out;
+}
+.btn3 > span {
+    display: flex;
+    align-items: center;
+    background: var(--color-green-dark);
+    background-color: var(--color-green-dark);
+    padding: 0 24px 0 12px;
+    transition: background-color .25s ease-in-out;
+}
+.btn3:hover > svg polygon {
+	fill: var(--color-green-darkest);
+}
+.btn3:hover > span {
+	background-color: var(--color-green-darkest);
+}
+
+
+.btn4 {
+    background-color: transparent;
+    color: var(--color-green-dark);
+    padding: 12px 12px;
+    border-radius: 0;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-transform: none;
+    text-decoration: underline;
+    text-decoration-thickness: .65px;
+    text-underline-offset: 2px;
+    transition: all .25s ease-in-out;
+}
+.btn4:hover {
+	color: var(--color-green-dark);
+	text-underline-offset: 4px;
+}
+
+
+.btn5 {
+	background: #903838;
+	background-color: #903838;
+	color: #FFF;
+	align-items: center;
+	padding: 16px 24px;
+	border-radius: 99999px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.btn5:hover {
+	background-color: #700505;
+}
+

@@ -1,0 +1,9 @@
+.badge {
+    display: inline-flex;
+    background-color: #DC7900;
+    color: #FFF;
+    font-size: 10px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 4px;
+}

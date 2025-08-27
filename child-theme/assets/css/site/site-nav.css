@@ -1,0 +1,55 @@
+.sub-menu {
+	transition: opacity 0.2s ease;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	background: white;
+	color: black;
+	padding: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+    margin: 0 -1rem;
+}
+.menu-item-has-children:hover .sub-menu {
+    display: flex !important;
+	opacity: 1;
+	visibility: visible;
+}
+
+.current-menu-item > a {
+    color: var(--color-green-dark);
+}
+
+
+
+
+
+.site-nav-mobile li.link2 {
+    display: flex;
+    flex-direction: column;
+}
+.site-nav-mobile li.link2:not(.btn) a {
+    padding: 6px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.site-nav-mobile a + .sub-menu {
+    display: flex !important;
+    flex-direction: column;
+    gap: .75rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+    background: none;
+    padding: 12px 0 12px 12px;
+    box-shadow: none;
+
+
+.site-nav-mobile li.link2:not(.btn) a + .sub-menu a {
+    font-size: 16px;
+}

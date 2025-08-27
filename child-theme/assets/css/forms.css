@@ -1,0 +1,157 @@
+::placeholder {
+  color: var(--color-placeholder);
+}
+
+:focus-visible {
+	outline-color: var(--color-green-darkest);
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+meter,
+select {
+	accent-color: var(--color-primary);
+}
+
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+	background: var(--color-primary);
+	border: none;
+}
+
+input:not([type=submit]):valid, 
+textarea:valid, 
+select:valid {
+	background-color: var(--bg-valid-input);
+	border-color: var(--color-green-dark); 
+}
+
+input:invalid, 
+textarea:invalid, 
+select:invalid {
+    background-color: #ffffff;
+    border-color: #ff000047;
+}
+
+input:invalid::placeholder, 
+textarea:invalid::placeholder {
+	color: var(--color-placeholder);
+}
+
+
+
+progress {
+ 	accent-color: var(--progress-value-bg);
+}
+
+progress::-webkit-progress-bar {
+	background-color: var(--progress-bar-bg);
+	border-radius: 8px;
+}
+
+progress::-webkit-progress-value {
+	background-color: var(--progress-value-bg);
+	border-radius: 8px;
+}
+
+progress::-moz-progress-bar {
+	background-color: var(--progress-bar-bg);
+}
+
+
+button {
+	appearance: none;
+	border: none;
+	background: none;
+	user-select: none;
+}
+
+button, 
+input, 
+label, 
+select, 
+textarea {
+	touch-action: manipulation;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+label[for],
+select {
+ 	cursor: pointer;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	appearance: button;
+	-webkit-appearance: button;
+}
+
+input, 
+textarea {
+  max-width: 100%;
+}
+
+input, 
+select,
+textarea {
+  user-select: text;
+}
+
+[type="search"] {
+  appearance: textfield;
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::-webkit-file-upload-button {
+  appearance: button;
+    -webkit-appearance: button; 
+    font: inherit;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}

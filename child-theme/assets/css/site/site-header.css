@@ -1,0 +1,21 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 11;
+}
+.site-header nav {
+    transition: all .25s ease-in-out;
+}
+
+.mod--is-scrolled .site-header {
+    box-shadow: 0 10px 20px -20px #004011;
+}
+.mod--is-scrolled-heavy .site-logo {
+    padding: 0 0 .5rem;
+}
+.mod--is-scrolled-heavy .site-logo img {
+    width: 80px;
+}

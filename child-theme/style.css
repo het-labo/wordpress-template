@@ -1,0 +1,12 @@
+/**
+Theme Name: Custom Theme
+Author: Nick De Jaeger
+Author URI: https://nickdejaeger.github.io
+Version: 0.1
+Tested up to: ?
+Requires at least: ?
+Requires PHP: ?
+Template:   twentysixteen
+*/
+
+@import url('assets/css/bundle.css');

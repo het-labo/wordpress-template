@@ -1,0 +1,87 @@
+.field {
+    display: flex;
+    flex-direction: column;
+}
+.field label {
+    padding: 0 1.5rem;
+}
+.field .input {
+    width: 100%;
+}
+
+
+.input1 {
+    display: inline-flex;
+    align-items: center;
+
+    background-color: #FFF;
+    border: 2px solid var(--color-green-dark);
+    border-radius: 99999px;
+    padding: 14px 18px 10px 18px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 110%;
+
+    color: var(--color-green-dark);
+}
+
+
+.input {
+	padding: .5rem 1.5rem;
+    border-radius: 99999px;
+    border: 1px solid;
+}
+textarea.input {
+    border-radius: 12px;
+}
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: #FFF;
+    border: 2px solid var(--color-green-dark);
+    border-radius: 99999px;
+    padding: 10px 32px 10px 18px;
+
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%2387A06C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') 
+              no-repeat right 6px center/24px auto;    
+}
+
+
+
+
+
+
+
+.wpcf7-list-item label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+}
+.wpcf7-list-item label .wpcf7-list-item-label {
+    position: relative;
+}
+.wpcf7-list-item label .wpcf7-list-item-label::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-valid-input);
+    border-color: var(--color-green-dark);
+    border: 1px solid var(--color-green-dark);
+    border-radius: 4px;
+    pointer-events: none;
+}
+.wpcf7-list-item label input {
+    cursor: pointer;
+}
+.wpcf7-list-item label input:checked + .wpcf7-list-item-label::before {
+    background-color: var(--color-green-dark);
+}
+

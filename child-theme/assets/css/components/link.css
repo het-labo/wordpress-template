@@ -1,0 +1,22 @@
+.link,
+.link1 {
+	text-decoration: underline;
+    text-decoration-thickness: .5px;
+    text-underline-offset: 4px;
+}
+
+.link2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.link2 a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+}

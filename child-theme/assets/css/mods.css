@@ -1,0 +1,43 @@
+
+.mod--ext {
+    cursor: pointer;
+}
+.mod--ext .mod--ext-a {
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px !important;
+}
+.mod--ext .mod--ext-a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+.mod--ext:hover .mod--ext-a {
+    text-decoration: underline;
+}
+.mod--ext:hover .btn3 > svg polygon {
+    fill: #004011;
+}
+.mod--ext:hover .btn3 > span {
+    background-color: #004011;
+}
+
+
+
+
+
+
+.mod--is-mobile-only {
+    display: block;
+}
+.mod--is-desktop-only {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .mod--is-mobile-only {
+        display: none;
+    }
+    .mod--is-desktop-only {
+        display: block;
+    }
+}

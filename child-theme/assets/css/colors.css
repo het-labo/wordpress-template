@@ -1,0 +1,29 @@
+.bg-green {
+	background-color: var(--color-green);
+}
+
+.bg-green-soft {
+	background-color: var(--color-green-soft);
+}
+
+.bg-darkgreen {
+	background-color: var(--color-green-dark);
+}
+
+.bg-darkestgreen {
+	background-color: var(--color-green-darkest);
+}
+
+.fill-green,
+.fill-green * {
+	fill: var(--color-green);
+}
+
+.fill-darkgreen,
+.fill-darkgreen * {
+	fill: var(--color-green-dark);
+}
+
+.border-green {
+	border-color: var(--color-green-dark);
+}

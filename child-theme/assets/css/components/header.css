@@ -1,0 +1,21 @@
+.header1, .header2 {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.header1 {
+	flex-direction: row;
+}
+
+.header2 {
+    flex-direction: column;
+}
+
+
+@media (max-width: 1024px) {
+	.header1 {
+		flex-direction: column;
+	}
+}

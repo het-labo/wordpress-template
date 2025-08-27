@@ -1,0 +1,7 @@
+.site-logo {
+	padding: 0 0 1rem;
+	transition: padding .25s ease-in-out;
+}
+.site-logo img {
+	transition: width .25s ease-in-out;
+}
