@@ -10,20 +10,20 @@
                     // Parent post navigation.
                     the_post_navigation(
                         array(
-                            'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'twentysixteen' ),
+                            'prev_text' => _x( '<span class="meta-nav">Published in</span><span class="post-title">%title</span>', 'Parent post link', 'childtheme' ),
                         )
                     );
                 } elseif ( is_singular( 'post' ) ) {
                     // Previous/next post navigation.
                     the_post_navigation(
                         array(
-                            'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'twentysixteen' ) . '</span> ' .
+                            'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'childtheme' ) . '</span> ' .
                                 /* translators: Hidden accessibility text. */
-                                '<span class="screen-reader-text">' . __( 'Next post:', 'twentysixteen' ) . '</span> ' .
+                                '<span class="screen-reader-text">' . __( 'Next post:', 'childtheme' ) . '</span> ' .
                                 '<span class="post-title">%title</span>',
-                            'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'twentysixteen' ) . '</span> ' .
+                            'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'childtheme' ) . '</span> ' .
                                 /* translators: Hidden accessibility text. */
-                                '<span class="screen-reader-text">' . __( 'Previous post:', 'twentysixteen' ) . '</span> ' .
+                                '<span class="screen-reader-text">' . __( 'Previous post:', 'childtheme' ) . '</span> ' .
                                 '<span class="post-title">%title</span>',
                         )
                     );

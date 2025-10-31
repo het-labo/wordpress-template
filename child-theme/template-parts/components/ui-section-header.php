@@ -7,9 +7,9 @@
 
 	$action_classes = 'btn';
 
-	if ( $action['class'] ) {
-		$action_classes = $action['class'];
-	}
+        if ( is_array( $action ) && ! empty( $action['class'] ) ) {
+                $action_classes = $action['class'];
+        }
 ?>
 
 <header class="<?php echo $classes; ?>">
@@ -22,10 +22,10 @@
 			</div>
 		</div>
 	</div>
-	<?php if ( $action ) : ?>
-		<div class="flex justify-end">
-			<div>
-				<a class="<?php echo $action_classes; ?>" href="<?php echo esc_url( $action['url'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
+        <?php if ( is_array( $action ) && ! empty( $action['url'] ) ) : ?>
+                <div class="flex justify-end">
+                        <div>
+                                <a class="<?php echo $action_classes; ?>" href="<?php echo esc_url( $action['url'] ); ?>"><?php echo esc_html( $action['label'] ); ?></a>
 			</div>
 		</div>
 	<?php endif; ?>

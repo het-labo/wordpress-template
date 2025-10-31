@@ -11,8 +11,10 @@ function childtheme_setup() {
     add_theme_support('editor-styles');
 
     register_nav_menus([
-        'primary' => __('Primary Menu', 'childtheme'),
-        'footer'  => __('Footer Menu', 'childtheme'),
+        'primary'         => __('Primary Menu', 'childtheme'),
+        'footer_primary'  => __('Footer primary links', 'childtheme'),
+        'footer_secondary'=> __('Footer secondary links', 'childtheme'),
+        'footer_utility'  => __('Footer utility links', 'childtheme'),
     ]);
 
     add_image_size('property-thumb', 400, 300, true);

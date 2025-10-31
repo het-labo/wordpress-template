@@ -9,10 +9,11 @@ function childtheme_filter_units_query($query) {
         $query->set('order', 'DESC');
 
         if (!empty($_GET['min_price'])) {
+            $min_price = absint(wp_unslash($_GET['min_price']));
             $query->set('meta_query', [
                 [
                     'key' => 'price',
-                    'value' => (int) $_GET['min_price'],
+                    'value' => $min_price,
                     'compare' => '>=',
                     'type' => 'NUMERIC',
                 ]

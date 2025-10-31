@@ -1,76 +1,111 @@
     </main>
 
+    <?php $company = childtheme_get_company_details(); ?>
+
     <footer class="site-footer bg-darkestgreen text-white">
 
-        <div class="flex items-center justify-center">
-            <div class="flex flex-col items-center justify-center">
-                <img width="120" src="/wp-content/themes/hopmarkt/assets/img/core/logo-white.png">
-                <?php $description = get_bloginfo( 'description', 'display' ); ?>
-                <?php if ( $description || is_customize_preview() ) : ?>
-                    <p class="label"><?php echo $description; ?></p>
+        <div class="flex items-center justify-center py-12">
+            <div class="flex flex-col items-center justify-center gap-4">
+                <?php
+                $custom_logo_id = get_theme_mod('custom_logo');
+                $footer_logo    = '';
+
+                if ($custom_logo_id) {
+                    $footer_logo = wp_get_attachment_image(
+                        $custom_logo_id,
+                        'full',
+                        false,
+                        [
+                            'class' => 'max-h-[120px] w-auto',
+                            'alt'   => esc_attr($company['name']),
+                        ]
+                    );
+                }
+
+                if ($footer_logo) {
+                    echo $footer_logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                } else {
+                    echo '<span class="text-xl font-semibold">' . esc_html($company['name']) . '</span>';
+                }
+
+                $description = get_bloginfo('description', 'display');
+                if ($description || is_customize_preview()) :
+                    ?>
+                    <p class="label"><?php echo esc_html($description); ?></p>
                 <?php endif; ?>
             </div>
         </div>
 
         <div class="container">
 
-            <div class="flex justify-between py-12">
+            <div class="flex flex-col lg:flex-row justify-between gap-12 py-12">
 
-                <div class="flex flex-col items-start gap-4">
-                    <div class="label">Hopmarkt</div>
-                    <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                        <nav class="nav-footer" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'twentysixteen' ); ?>">
+                <?php if (has_nav_menu('footer_primary')) : ?>
+                    <div class="flex flex-col items-start gap-4">
+                        <div class="label"><?php echo esc_html($company['name']); ?></div>
+                        <nav class="nav-footer" aria-label="<?php esc_attr_e('Footer primary links', 'childtheme'); ?>">
                             <?php
                             wp_nav_menu(
-                                array(
-                                    'menu' => 'Footer main',
+                                [
+                                    'theme_location' => 'footer_primary',
+                                    'container'      => false,
                                     'menu_class'     => 'flex flex-col items-start gap-2',
-                                )
+                                    'depth'          => 1,
+                                    'fallback_cb'    => false,
+                                ]
                             );
-                        ?>
-                        </nav>
-                    <?php endif; ?>
-                </div>
-
-                <div class="flex flex-col items-start gap-4">
-                    <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                        <div class="label">Aanbod</div>
-                        <nav aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'twentysixteen' ); ?>">
-                            <?php
-                                wp_nav_menu(
-                                    array(
-                                        'menu' => 'Aanbod',
-                                        'menu_class'     => 'flex flex-col items-start gap-2',
-                                    )
-                                );
                             ?>
                         </nav>
-                    <?php endif; ?>
-                </div>
-
-
-                <?php if ( !empty( $GLOBALS['COMPANY_EMAIL'] ) || !empty( $GLOBALS['COMPANY_ADDRESS_STREET'] ) ) : ?>
-                    <div class="flex flex-col items-start  gap-4">
-                        <div class="label">Contact</div>
-                        <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                            <nav class="nav-footer" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'twentysixteen' ); ?>">
-                                <ul class="flex flex-col items-start gap-2">
-                                    <li>
-                                        <a href="tel:<?= esc_html($GLOBALS['COMPANY_PHONE']); ?>"><?= esc_html($GLOBALS['COMPANY_PHONE']); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="mailto:<?= esc_html($GLOBALS['COMPANY_EMAIL']); ?>"><?= esc_html($GLOBALS['COMPANY_EMAIL']); ?></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><?= esc_html($GLOBALS['COMPANY_ADDRESS_STREET']); ?> <?= esc_html($GLOBALS['COMPANY_ADDRESS_STREET_NR']); ?>, <?= esc_html($GLOBALS['COMPANY_ADDRESS_POSTAL']); ?> <?= esc_html($GLOBALS['COMPANY_ADDRESS_PLACE']); ?></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
 
-                
+                <?php if (has_nav_menu('footer_secondary')) : ?>
+                    <div class="flex flex-col items-start gap-4">
+                        <div class="label"><?php esc_html_e('Aanbod', 'childtheme'); ?></div>
+                        <nav aria-label="<?php esc_attr_e('Footer secondary links', 'childtheme'); ?>">
+                            <?php
+                            wp_nav_menu(
+                                [
+                                    'theme_location' => 'footer_secondary',
+                                    'container'      => false,
+                                    'menu_class'     => 'flex flex-col items-start gap-2',
+                                    'depth'          => 1,
+                                    'fallback_cb'    => false,
+                                ]
+                            );
+                            ?>
+                        </nav>
+                    </div>
+                <?php endif; ?>
+
+                <?php
+                $has_contact = !empty($company['phone']) || !empty($company['email']) || !empty($company['street']);
+                if ($has_contact) :
+                    $street_line = trim($company['street'] . ' ' . $company['street_nr']);
+                    $city_line   = trim($company['postal_code'] . ' ' . $company['city']);
+                    ?>
+                    <div class="flex flex-col items-start gap-4">
+                        <div class="label"><?php esc_html_e('Contact', 'childtheme'); ?></div>
+                        <ul class="flex flex-col items-start gap-2">
+                            <?php if (!empty($company['phone'])) : ?>
+                                <?php $phone_href = preg_replace('/[^0-9+]/', '', $company['phone']); ?>
+                                <li>
+                                    <a href="tel:<?php echo esc_attr($phone_href); ?>"><?php echo esc_html($company['phone']); ?></a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if (!empty($company['email'])) : ?>
+                                <li>
+                                    <a href="mailto:<?php echo esc_attr($company['email']); ?>"><?php echo esc_html($company['email']); ?></a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($street_line || $city_line) : ?>
+                                <li>
+                                    <span><?php echo esc_html(trim($street_line)); ?><?php echo $city_line ? ', ' . esc_html($city_line) : ''; ?></span>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
 
             </div>
 
@@ -79,25 +114,34 @@
         <div style="background-color: #0D501F;">
             <div class="container-wide">
 
-                <div class="flex flex-col sm:flex-row justify-between py-4 text-xs text-white">
+                <div class="flex flex-col sm:flex-row justify-between py-4 text-xs text-white gap-4">
 
-                    <div class="flex-1 flex gap-4">
-                        <a href="#" class="link">Disclaimer</a>
-                        <?php if ( function_exists( 'the_privacy_policy_link' ) ) : ?>
-                            <span class="link1"><?php the_privacy_policy_link(); ?></span>
+                    <div class="flex-1 flex flex-wrap gap-4 items-center">
+                        <?php if (has_nav_menu('footer_utility')) : ?>
+                            <?php
+                            wp_nav_menu(
+                                [
+                                    'theme_location' => 'footer_utility',
+                                    'container'      => false,
+                                    'menu_class'     => 'flex flex-wrap items-center gap-4',
+                                    'depth'          => 1,
+                                    'fallback_cb'    => false,
+                                ]
+                            );
+                            ?>
                         <?php endif; ?>
-                        <a href="#" class="link">Privacy policy</a>
-                        <a class="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-                        <a href="#" class="link">Cookie opties</a>
+                        <?php if (function_exists('the_privacy_policy_link')) : ?>
+                            <span class="link1"><?php the_privacy_policy_link('', ''); ?></span>
+                        <?php endif; ?>
                     </div>
 
-                    <div class="flex-1 sm:text-center"><span class="label2">© 2025 Asse <?php bloginfo( 'name' ); ?></span></div>
+                    <div class="flex-1 sm:text-center">
+                        <span class="label2">© <?php echo esc_html(gmdate('Y')); ?> <?php echo esc_html(trim($company['city'])); ?> <?php echo esc_html($company['name']); ?></span>
+                    </div>
 
                     <div class="flex-1 sm:text-right">
-                        <span class="label2">Website</span>
-                        <a class="link" href="<?php echo esc_url( __( 'https://het-labo.be/', 'twentysixteen' ) ); ?>" class="imprint">
-                            <?php printf( __( '%s', 'twentysixteen' ), 'Het Labo' ); ?>
-                        </a>
+                        <span class="label2"><?php esc_html_e('Website', 'childtheme'); ?></span>
+                        <a class="link" href="https://het-labo.be/" rel="noopener" target="_blank">Het Labo</a>
                     </div>
 
                 </div>
@@ -128,7 +172,7 @@
     </header>
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
-        <nav class="site-nav-mobile" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+        <nav class="site-nav-mobile" aria-label="<?php esc_attr_e( 'Primary Menu', 'childtheme' ); ?>">
             <?php
                 wp_nav_menu(
                     array(

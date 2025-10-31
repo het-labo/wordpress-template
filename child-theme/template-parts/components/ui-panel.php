@@ -4,7 +4,7 @@
 	$content 		= $args['content'] 	?? '';
 	$classes 		= $args['classes'] 	?? '';
 
-	$class = 'relaitve p-6 rounded-lg border border-green ';
+        $class = 'relative p-6 rounded-lg border border-green ';
 
 	$classList = preg_split('/\s+/', trim($classes));
 
@@ -16,12 +16,12 @@
 	}
 ?>
 
-<article class="<?= esc_html($class); ?>">
-	<header>
-		<div class="label"><?= $label; ?></div>
-		<h3><?= $title; ?></h3>
-	</header>
-	<div class="">
-		<?= wp_kses( $content, ['p' => []] ); ?>
-	</div>
+<article class="<?= esc_attr($class); ?>">
+        <header>
+                <div class="label"><?= esc_html($label); ?></div>
+                <h3><?= esc_html($title); ?></h3>
+        </header>
+        <div class="">
+                <?= wp_kses( $content, ['p' => []] ); ?>
+        </div>
 </article>

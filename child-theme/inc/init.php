@@ -8,6 +8,7 @@ $modules = [
     'assets',
     'custom-post-types',
     'custom-fields',
+    'customizer',
     'filters',
     'forms',
     'helpers',
