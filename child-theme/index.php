@@ -30,14 +30,14 @@
                 <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 			<?php endwhile; ?>
 
-			<?php the_posts_pagination(
-				array(
-					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-					'next_text'          => __( 'Next page', 'twentysixteen' ),
-					/* translators: Hidden accessibility text. */
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-				)
-			);
+                        <?php the_posts_pagination(
+                                array(
+                                        'prev_text'          => __( 'Previous page', 'childtheme' ),
+                                        'next_text'          => __( 'Next page', 'childtheme' ),
+                                        /* translators: Hidden accessibility text. */
+                                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'childtheme' ) . ' </span>',
+                                )
+                        );
             ?>
             <?php // If no content, include the "No posts found" template. ?>
 		<?php else : ?>

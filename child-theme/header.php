@@ -1,5 +1,7 @@
 <?php require_once('inc/core/head.php'); ?>
 
+<?php $company = childtheme_get_company_details(); ?>
+
 <body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
@@ -7,7 +9,7 @@
 <div class="site">
 
     <a class="sr-only" href="#site-main">
-        <?php _e( 'Skip to content', 'twentysixteen' ); ?>
+        <?php _e( 'Skip to content', 'childtheme' ); ?>
     </a>
 
     <header class="site-header">
@@ -24,13 +26,13 @@
 
                     <a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <span class="sr-only"><?php bloginfo( 'name' ); ?></span>
-                        <img width="120" height="auto" src="<?= esc_html($logo_url); ?>" alt="Hopmarkt" decoding="async">
+                        <img width="120" height="auto" src="<?= esc_html($logo_url); ?>" alt="<?= esc_attr($company['name']); ?>" decoding="async">
                     </a>
 
                 <?php endif; ?>
 
                 <?php if ( has_nav_menu( 'primary' ) ) : ?>
-                    <nav class="mod--is-desktop-only" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+                    <nav class="mod--is-desktop-only" aria-label="<?php esc_attr_e( 'Primary Menu', 'childtheme' ); ?>">
                         <?php
                             wp_nav_menu(
                                 array(

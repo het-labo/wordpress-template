@@ -8,7 +8,7 @@
 @import url('forms.css');
 @import url('colors.css');
 @import url('typography.css');
-@import url('aria.css');
+@import url('accessibility.css');
 
 @import url('site/site.css');
 @import url('site/site-nav.css');

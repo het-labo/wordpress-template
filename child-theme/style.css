@@ -1,12 +1,15 @@
 /**
-Theme Name: Custom Theme
-Author: Nick De Jaeger
-Author URI: https://nickdejaeger.github.io
-Version: 0.1
-Tested up to: ?
-Requires at least: ?
-Requires PHP: ?
-Template:   twentysixteen
+Theme Name: Hopmarkt Starter Theme
+Theme URI: https://het-labo.be/
+Author: Het Labo
+Author URI: https://het-labo.be/
+Description: A reusable child theme scaffold for brochure and real-estate sites built on Twenty Sixteen.
+Version: 0.2.0
+Tested up to: 6.4
+Requires at least: 6.0
+Requires PHP: 7.4
+Template: twentysixteen
+Text Domain: childtheme
 */
 
 @import url('assets/css/bundle.css');
